@@ -1,0 +1,22 @@
+<head>
+    <title>Add Student</title>
+	<style>
+        body { font-family: Arial; margin: 20px; text-align:center;}
+        h2 { color: #333;  text-align:center;}
+        form { padding: 10px; border: 1px solid #ccc; width: 300px; margin: 0 auto; text-align: left; }
+        input, select, button { margin: 5px 0; width: 100%; }
+        button { background: #4CAF50; color: white; border: none; }
+        a { display: block; margin-top: 10px; }
+    </style>
+</head>
+
+<body>
+    <h2>Add Student</h2>
+    <form method="POST">
+        {% csrf_token %}
+        {{form.as_p}}
+        <button>Submit</button>
+
+    </form>
+        <a href = "{% url 'student_list' %}">Click to view all Students</a>
+</body>

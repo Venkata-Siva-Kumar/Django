@@ -1,0 +1,32 @@
+<head>
+    <title>Students List</title>
+	<style>
+		body { font-family: Arial; margin: 20px; text-align:center;}
+        h2 { color: red; }
+        table { border-collapse: collapse; width: 80%; margin: 0 auto; }
+        th, td { border: 1px solid #ccc; padding: 5px; }
+        th { background: green; color: white; text-align: center;}
+        a { display:block; margin-top: 20px; }
+	</style>
+</head>
+
+<body>
+    <h2>Students Details</h2>
+    <table border=2>
+        <tr>
+            <th>RegNo</th>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Sex</th>
+        </tr>
+        {% for student in students %}
+        <tr>
+            <td>{{student.regNo}}</td>
+            <td>{{student.name}}</td>
+            <td>{{student.age}}</td>
+            <td>{{student.get_sex_display}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <a href = "{% url 'add_student' %}">Click to add a new Student</a>
+</body>
