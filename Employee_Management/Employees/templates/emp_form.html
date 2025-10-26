@@ -1,0 +1,36 @@
+<head>
+    <title>Employee Form</title>
+	<style>
+		body{
+			font-family:Arial; 
+			text-align:center;
+			margin:20px;
+		}
+		h2{
+			color:red;
+			text-align:center;
+		}
+		
+		form{
+			padding: 20px;
+			border: 2px solid green;
+			margin : 0 auto;
+			width : 300px;
+			text-align:left;
+		}
+		input,select,button{
+			margin: 5px 0px;
+			width: 100%;
+		}
+
+	</style>
+</head>
+
+<body>
+    <h2>Add Employee</h2>
+    <form method='POST'>
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button>Save</button>
+    </form>
+</body>

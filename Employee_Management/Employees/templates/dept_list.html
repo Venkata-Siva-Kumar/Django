@@ -1,0 +1,49 @@
+<head>
+    <title>Departments</title>
+	<style>
+		body{
+			font-family:Arial; 
+			text-align:center; 
+		}
+		h2 {color:red;}
+		
+		table{
+			border-collapse:collapse; 
+			text-align:center;
+			width: 90%;
+			margin: 0 auto;
+		}
+		td,th{
+			border: 2px  solid black;
+			padding: 5px;
+		}
+		th{
+			background-color:green;
+			color: white;
+		}
+		a{
+			display:block;
+			margin-top: 30px;
+		}
+	</style>
+</head>
+
+<body>
+    <h2>Department List</h2>
+    
+    <table border="1">
+        <tr>
+            <th>Department Number</th>
+            <th>Department Name</th>
+            <th>Location</th>
+        </tr>
+        {% for d in departments %}
+        <tr>
+            <td>{{d.deptNo}}</td>
+            <td>{{d.dName}}</td>
+            <td>{{d.location}}</td>
+        </tr>
+        {% endfor %}        
+    </table>
+    <a href = '{% url 'add_dept' %}'>Add Department</a>
+</body>
