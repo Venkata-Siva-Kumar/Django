@@ -1,0 +1,51 @@
+<!Doctype html>
+<html>
+	<head>
+		<title>Plant Update</title>
+		<style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+        }
+        form {
+            display: inline-block;
+            text-align: left;
+            border: 1px solid black;
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+        label {
+            font-weight: bold;
+        }
+        input, textarea, select {
+            width: 100%;
+            padding: 5px;
+            margin: 5px 0 10px 0;
+        }
+        button {
+            background-color: lightblue;
+            border: 1px solid blue;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+        a {
+            display: inline-block;
+            margin-top: 15px;
+            text-decoration: none;
+            color: blue;
+        }
+    </style>
+	</head>
+	
+	<body>
+		<h2>Update Plant - {{plant.name}}</h2>
+		<form method='POST'>
+			{% csrf_token %}
+			{{ form.as_p }}
+		<button>Update</button>
+		</form>
+	</body>
+	<br>
+	<a href = {% url 'show_plants' %} >Back</a>
+</html>

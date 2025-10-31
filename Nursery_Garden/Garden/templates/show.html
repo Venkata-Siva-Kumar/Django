@@ -1,0 +1,59 @@
+<!Doctype html>
+<html>
+	<head>
+		<title>Plant Details</title>
+		<style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+        }
+        table {
+            border-collapse: collapse;
+            margin: 0 auto;
+        }
+        th, td {
+            padding: 10px;
+        }
+        button a {
+            text-decoration: none;
+            color: white;
+        }
+        button {
+            background-color: #4CAF50;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 4px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+	</head>
+	
+	<body>
+		<h2>Plant Details</h2>
+		<table border=2>
+			<tr>
+				<th>Name</th>
+				<th>Type</th>
+				<th>Price</th>
+				<th>Benefit</th>
+				<th>Actions</th>
+			</tr>
+			
+			{% for p in plants %}
+			<tr>
+				<td>{{p.name}}</td>
+				<td>{{p.type}}</td>
+				<td>{{p.price}}</td>
+				<td>{{p.benefit}}</td>
+				<td>
+					<button><a href={% url 'update_plant' p.id %}>Edit</a></button>
+				</td>
+			</tr>
+			{% endfor %}
+		</table>
+	</body>
+	<br>
+	<a href = {% url 'insert_plant' %} >Insert New Plant</a>
+</html>
