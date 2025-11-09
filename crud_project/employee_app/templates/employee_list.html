@@ -10,7 +10,8 @@
 			<th>Email</th>
 			<th>Mobile</th>
 			<th>Department</th>
-			<th>Actions</th>
+			<th>Edit</th>
+			<th>Delete</th>
 		</tr>
         {% for e in employees %}
         <tr>
@@ -19,7 +20,9 @@
             <td>{{ e.mobile }}</td>
             <td>{{ e.department }}</td>
             <td>
-                <a href="{% url 'edit_employee' e.id %}">Edit</a> |
+                <a href="{% url 'edit_employee' e.id %}">Edit</a> 
+            </td>
+			<td>
                 <a href="{% url 'delete_employee' e.id %}">Delete</a>
             </td>
         </tr>

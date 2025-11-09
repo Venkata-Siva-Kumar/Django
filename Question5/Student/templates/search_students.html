@@ -1,0 +1,17 @@
+
+<body>
+    <h2>Enter Department Name</h2>
+    <form method="POST">
+        {% csrf_token %}
+        <input type="text" name="department" >
+        <button type="submit">Search</button>
+    </form>
+
+    {% if students %}
+        <h3>Students:</h3>
+        {% for s in students %}
+            <p>{{ s.student_name }} - {{ s.deptID.deptName }}</p>
+        {% endfor %}
+    {% endif %}
+</body>
+
