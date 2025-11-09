@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+	<body>
+		<h3>ECE Students</h3>
+		
+		<table border="1">
+		<tr><th>Register No</th><th>Name</th></tr>
+		{% for s in students %}
+		<tr>
+		  <td>{{ s.registerNo }}</td>
+		  <td>{{ s.studentName }}</td>
+		</tr>
+		
+		{% endfor %}
+		</table>
+		<a href="{% url 'home' %}">Home</a>
+	</body>
+</html>

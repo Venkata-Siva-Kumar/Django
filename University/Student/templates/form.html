@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>{{title}}</title>
+		<style>
+			body{
+				font-family:Arial; 
+				text-align:center;
+				margin:20px;
+			}
+			h3{
+				color:red;
+				text-align:center;
+			}
+			
+			form{
+				padding: 20px;
+				border: 2px solid green;
+				margin : 0 auto;
+				width : 300px;
+				text-align:left;
+			}
+			input,select,button{
+				margin: 5px 0px;
+				width: 100%;
+			}
+
+		</style>
+	</head>
+
+	<body>
+		<h3>{{ title }} Form</h3>
+		<form method="post">
+			{% csrf_token %}
+			{{ form.as_p }}
+			<button type="submit">Save</button>
+		</form>
+		<a href="{% url 'home' %}">Home</a>
+	</body>
+</html>

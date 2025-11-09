@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<body>
+		<h3>Grade Sheet</h3>
+
+		<form method="post">
+		  {% csrf_token %}
+		  <p>Register No: <input type="text" name="registerNo" required></p>
+		  <p>
+			CIA Number:
+			<select name="cia_no">
+			  <option value="1">CIA 1</option>
+			  <option value="2">CIA 2</option>
+			  <option value="3">CIA 3</option>
+			</select>
+		  </p>
+		  <button type="submit">Show</button>
+		</form>
+
+		{% if student %}
+		  <h4>{{ student.registerNo }} - {{ student.studentName }}</h4>
+		  <p>Total Marks: {{ total }}</p>
+		  <p>Average: {{ average|floatformat:2 }}</p>
+		  <p>Grade: <b>{{ grade }}</b></p>
+		{% endif %}
+
+		<p><a href="{% url 'home' %}">Home</a></p>
+	</body>
+</html>
