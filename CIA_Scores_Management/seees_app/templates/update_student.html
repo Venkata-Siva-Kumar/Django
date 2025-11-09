@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Update Student</title>
+    <style>
+        body {
+            font-family: Arial;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 40px;
+        }
+        .container {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 20px 40px;
+            width: 50%;
+            margin: auto;
+        }
+        button {
+            background-color: white;
+            color: #5a3ea0;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 8px;
+            margin-top: 15px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        button:hover { background-color: #e3e3e3; }
+        a { color: #fff; text-decoration: underline; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Update Student Record</h2>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Update</button>
+        </form>
+        <br>
+        <a href="{% url 'view_students' %}">← Back to List</a>
+    </div>
+</body>
+</html>

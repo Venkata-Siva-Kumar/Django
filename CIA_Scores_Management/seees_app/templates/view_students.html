@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>View Students</title>
+    <style>
+        body {
+            font-family: Arial;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 40px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: rgba(255,255,255,0.1);
+        }
+        th, td {
+            border: 1px solid white;
+            padding: 10px;
+            text-align: center;
+        }
+        th {
+            background: rgba(255,255,255,0.2);
+        }
+        a {
+            color: yellow;
+            text-decoration: none;
+            margin: 0 5px;
+        }
+        a:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+    <h2>All Students</h2>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>CIA No</th>
+            <th>Mark</th>
+            <th>Department</th>
+            <th>Course</th>
+            <th>Actions</th>
+        </tr>
+        {% for s in students %}
+        <tr>
+            <td>{{ s.id }}</td>
+            <td>{{ s.student_name }}</td>
+            <td>{{ s.cia_no }}</td>
+            <td>{{ s.mark }}</td>
+            <td>{{ s.deptID.deptName }}</td>
+            <td>{{ s.courseID.courseName }}</td>
+            <td>
+                <a href="{% url 'update_student' s.id %}">Edit</a> |
+                <a href="{% url 'delete_student' s.id %}">Delete</a>
+            </td>
+        </tr>
+        {% empty %}
+        <tr><td colspan="7">No students found.</td></tr>
+        {% endfor %}
+    </table>
+
+    <br><a href="{% url 'home' %}">← Back to Home</a>
+</body>
+</html>
