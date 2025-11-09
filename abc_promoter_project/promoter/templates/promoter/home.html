@@ -1,0 +1,22 @@
+{% extends 'promoter/base.html' %}
+
+
+{% block content %}
+	<h2>Available Flats</h2>
+		<ul>
+			{% for key, title, price in flats %}
+				<li><strong>{{ title }}</strong> — {{ price }}</li>
+			{% endfor %}
+		</ul>
+
+	<h2>Independent Houses</h2>
+	<ul>
+		{% for key, title, price in houses %}
+			<li><strong>{{ title }}</strong> — {{ price }}</li>
+		{% endfor %}
+	</ul>
+
+	<p>
+	<a href="{% url 'promoter:register' %}">Register for Booking</a>
+	</p>
+{% endblock %}

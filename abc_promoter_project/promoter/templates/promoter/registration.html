@@ -1,0 +1,40 @@
+{% extends 'promoter/base.html' %}
+{% load static %}
+
+{% block content %}
+  <h2>Registration Form</h2>
+
+  <form method="post">
+    {% csrf_token %}
+    <table>
+      {{ form.as_table }}
+    </table>
+    <button type="submit">Submit</button>
+  </form>
+
+  <script>
+    // Small JS to toggle flat/house select fields visibility based on booking_for
+    document.addEventListener('DOMContentLoaded', function () {
+      const bookingForInputs = document.querySelectorAll('input[name="booking_for"]');
+      
+      function toggleFields() {
+        const selected = document.querySelector('input[name="booking_for"]:checked');
+        const flatRow = document.querySelector('select[name="flat_type"]').closest('tr');
+        const houseRow = document.querySelector('select[name="house_type"]').closest('tr');
+
+        if (!selected) return;
+
+        if (selected.value === 'flat') {
+          flatRow.style.display = '';
+          houseRow.style.display = 'none';
+        } else {
+          flatRow.style.display = 'none';
+          houseRow.style.display = '';
+        }
+      }
+
+      bookingForInputs.forEach(input => input.addEventListener('change', toggleFields));
+      toggleFields(); // Initial call on page load
+    });
+  </script>
+{% endblock %}

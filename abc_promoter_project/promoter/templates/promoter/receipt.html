@@ -1,0 +1,23 @@
+{% extends 'promoter/base.html' %}
+
+{% block content %}
+<h2>Booking Receipt</h2>
+
+<div style="border: 1px solid #333; padding: 20px; width: 400px; border-radius: 8px;">
+  <p><strong>Customer Name:</strong> {{ booking.name }}</p>
+  <p><strong>Mobile Number:</strong> {{ booking.mobile }}</p>
+  <p><strong>Email ID:</strong> {{ booking.email }}</p>
+  <p><strong>Booking For:</strong> {{ booking.booking_for|title }}</p>
+
+  {% if booking.booking_for == 'flat' %}
+  <p><strong>Flat Type:</strong> {{ booking.flat_type|title }}</p>
+  {% else %}
+  <p><strong>House Type:</strong> {{ booking.house_type|title }}</p>
+  {% endif %}
+
+  <p><strong>Amount (₹):</strong> {{ booking.amount }}</p>
+</div>
+
+<br>
+<a href="{% url 'promoter:home' %}">← Back to Home</a>
+{% endblock %}
